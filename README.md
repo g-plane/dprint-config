@@ -8,7 +8,7 @@ Edit `dprint.json` like this:
 
 ```json
 {
-  "extends": "https://github.com/g-plane/dprint-config/raw/main/dprint.json"
+  "extends": "https://dprint.gplane.win/dprint.json"
 }
 ```
 
