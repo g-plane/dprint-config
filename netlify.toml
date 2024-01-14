@@ -1,0 +1,4 @@
+[[headers]]
+for = "/*.ts"
+[headers.values]
+Content-Type = "application/typescript"
