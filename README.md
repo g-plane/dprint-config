@@ -11,7 +11,7 @@ If you have installed Deno, you can use the CLI to create or update the config.
 To create config:
 
 ```
-deno run --allow-write=. --allow-net https://dprint.gplane.win/cli.ts init
+deno run --allow-read --allow-write --allow-net https://dprint.gplane.win/cli.ts init
 ```
 
 `create` command is an alias for `init`.
@@ -19,7 +19,7 @@ deno run --allow-write=. --allow-net https://dprint.gplane.win/cli.ts init
 To update config:
 
 ```
-deno run --allow-read=. --allow-write=. --allow-net https://dprint.gplane.win/cli.ts update
+deno run --allow-read --allow-write --allow-net https://dprint.gplane.win/cli.ts update
 ```
 
 `up` command is an alias for `update`.
