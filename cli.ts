@@ -29,14 +29,9 @@ async function init() {
   if (!latest) {
     return
   }
-  await Deno.writeTextFile(
-    filePath,
-    JSON.stringify(
-      { extends: `${baseURL}/${latest.name}.json` },
-      null,
-      2,
-    ),
-  )
+
+  const config = { extends: `${baseURL}/${latest.name}.json` }
+  await Deno.writeTextFile(filePath, JSON.stringify(config, null, 2) + '\n')
 }
 
 async function update() {
@@ -58,7 +53,7 @@ async function update() {
     config.extends = `${baseURL}/${latest.name}.json`
   }
 
-  await Deno.writeTextFile(filePath, JSON.stringify(config, null, 2))
+  await Deno.writeTextFile(filePath, JSON.stringify(config, null, 2) + '\n')
 }
 
 async function fetchLatest() {
