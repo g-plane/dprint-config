@@ -1,5 +1,11 @@
 import * as path from 'https://deno.land/std@0.212.0/path/mod.ts'
 import yargs from 'https://deno.land/x/yargs@v17.7.2-deno/deno.ts'
+import {
+  applyEdits,
+  type FormattingOptions,
+  modify,
+  parse,
+} from 'npm:jsonc-parser@3.2.1'
 
 const filePath = path.join(Deno.cwd(), 'dprint.json')
 const baseURL = 'https://dprint.gplane.win'
@@ -34,9 +40,15 @@ async function init() {
   await Deno.writeTextFile(filePath, JSON.stringify(config, null, 2) + '\n')
 }
 
+const JSONC_FORMATTING_OPTIONS: FormattingOptions = {
+  tabSize: 2,
+  insertSpaces: true,
+}
+
 async function update() {
-  const config: { extends?: string | string[] } = JSON.parse(
-    await Deno.readTextFile(filePath),
+  const json = await Deno.readTextFile(filePath)
+  const config: { extends?: string | string[] } = parse(
+    json,
   )
 
   const latest = await fetchLatest()
@@ -44,16 +56,28 @@ async function update() {
     return
   }
 
+  let edits
   if (Array.isArray(config.extends)) {
     const index = config.extends.findIndex((url) => url.startsWith(baseURL))
     if (~index) {
-      config.extends[index] = `${baseURL}/${latest.name}.json`
+      edits = modify(
+        json,
+        ['extends', index],
+        `${baseURL}/${latest.name}.json`,
+        {
+          formattingOptions: JSONC_FORMATTING_OPTIONS,
+        },
+      )
     }
   } else {
-    config.extends = `${baseURL}/${latest.name}.json`
+    edits = modify(json, ['extends'], `${baseURL}/${latest.name}.json`, {
+      formattingOptions: JSONC_FORMATTING_OPTIONS,
+    })
   }
 
-  await Deno.writeTextFile(filePath, JSON.stringify(config, null, 2) + '\n')
+  if (edits) {
+    await Deno.writeTextFile(filePath, applyEdits(json, edits))
+  }
 }
 
 async function fetchLatest() {
