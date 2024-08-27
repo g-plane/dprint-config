@@ -2,3 +2,8 @@
 for = "/*.ts"
 [headers.values]
 Content-Type = "application/typescript"
+
+[[headers]]
+for = "/*.json"
+[headers.values]
+Access-Control-Allow-Origin = "*"
