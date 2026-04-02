@@ -1,0 +1,69 @@
+{
+  "lineWidth": 100,
+  "indentWidth": 2,
+  "newLineKind": "lf",
+  "useTabs": false,
+  "typescript": {
+    "semiColons": "asi",
+    "quoteStyle": "preferSingle",
+    "useBraces": "always",
+    "singleBodyPosition": "nextLine",
+    "operatorPosition": "sameLine",
+    "typeParameters.preferHanging": "always",
+    "conditionalExpression.operatorPosition": "nextLine",
+    "conditionalType.operatorPosition": "nextLine",
+    "exportDeclaration.preferSingleLine": true,
+    "importDeclaration.preferSingleLine": true,
+    "arrowFunction.useParentheses": "force",
+    "typeLiteral.separatorKind": "comma",
+    "constructorType.spaceAfterNewKeyword": true,
+    "module.sortImportDeclarations": "caseSensitive",
+    "module.sortExportDeclarations": "caseSensitive",
+    "exportDeclaration.sortNamedExports": "caseSensitive",
+    "exportDeclaration.sortTypeOnlyExports": "first",
+    "importDeclaration.sortNamedImports": "caseSensitive",
+    "importDeclaration.sortTypeOnlyImports": "first"
+  },
+  "malva": {
+    "quotes": "preferSingle",
+    "attrSelector.quotes": "preferDouble",
+    "trailingComma": true,
+    "formatComments": true,
+    "keyframeSelectorNotation": "percentage"
+  },
+  "markup": {
+    "formatComments": true,
+    "scriptIndent": true,
+    "vue.scriptIndent": false,
+    "styleIndent": true,
+    "vue.styleIndent": false,
+    "preferAttrsSingleLine": true,
+    "html.normal.selfClosing": false,
+    "html.void.selfClosing": false,
+    "component.selfClosing": true,
+    "svg.selfClosing": false,
+    "mathml.selfClosing": false,
+    "component.whitespaceSensitivity": "ignore",
+    "vBindStyle": "short",
+    "vOnStyle": "short",
+    "vForDelimiterStyle": "in",
+    "vSlotStyle": "short",
+    "component.vSlotStyle": "vSlot",
+    "vueComponentCase": "pascalCase",
+    "svelteAttrShorthand": true,
+    "svelteDirectiveShorthand": true
+  },
+  "json": {
+  },
+  "yaml": {
+    "formatComments": true
+  },
+  "excludes": ["**/node_modules", "**/dist", "pnpm-lock.yaml"],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.95.15.wasm",
+    "https://plugins.dprint.dev/g-plane/malva-v0.15.2.wasm",
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.27.0.wasm",
+    "https://plugins.dprint.dev/json-0.21.3.wasm",
+    "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm"
+  ]
+}
