@@ -59,7 +59,7 @@
   "yaml": {
     "formatComments": true
   },
-  "excludes": ["**/node_modules", "**/dist", "pnpm-lock.yaml"],
+  "excludes": ["**/node_modules", "**/target", "**/dist", "pnpm-lock.yaml"],
   "plugins": [
     "npm:@dprint/typescript@0.96.1",
     "npm:dprint-plugin-malva@0.16.0",
