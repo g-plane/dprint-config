@@ -1,7 +1,7 @@
 {
   "name": "@gplane/dprint-config",
   "description": "Shareable dprint configuration file.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Pig Fang <g-plane@hotmail.com>",
   "repository": "g-plane/dprint-config",
   "private": false,
