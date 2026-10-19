@@ -8,11 +8,19 @@ Edit `dprint.json` like this:
 
 ```json
 {
-  "extends": "https://dprint.gplane.win/<version>.json"
+  "extends": "npm:@gplane/dprint-config@<version>"
 }
 ```
 
 Replace the `<version>` above with actual latest version manually.
+
+Or, you can install `@gplane/dprint-config` with npm, then edit `dprint.json`:
+
+```json
+{
+  "extends": "npm:@gplane/dprint-config"
+}
+```
 
 ## License
 
