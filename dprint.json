@@ -64,7 +64,7 @@
   },
   "excludes": ["**/node_modules", "**/target", "**/dist", "pnpm-lock.yaml"],
   "plugins": [
-    "npm:@dprint/typescript@0.97.0",
+    "npm:@dprint/typescript@0.98.0",
     "npm:dprint-plugin-malva@0.16.0",
     "npm:dprint-plugin-markup@0.27.6",
     "npm:@dprint/json@0.25.2",
